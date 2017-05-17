@@ -1,6 +1,55 @@
-call plug#begin('~/.vim/plugged')
+"项目使用vim-plug作为插件管理工具
+"文档查看https://github.com/junegunn/vim-plug
+call plug#begin('~/.local/share/nvim/plugged')
 "in this place,you can add Plug what you want
 "下面这个插件,可以在Normal与Insert模式之间自动切换输入法
+"See https://github.com/CodeFalling/fcitx-remote-for-osx
 Plug 'CodeFalling/fcitx-vim-osx'
-
+"快速注释
+"See https://github.com/scrooloose/nerdcommenter
+Plug 'scrooloose/nerdcommenter'
+"surround可以用来修改括号, 方括号, 标签等等包围在两边的元素
+"See https://github.com/tpope/vim-surround
+Plug 'git://github.com/tpope/vim-surround.git'
+"模糊搜索文件
+Plug 'ctrlpvim/ctrlp.vim'
+"Vim mark标记
+Plug 'kshenoy/vim-signature'
+"EditorConfig的支持
+Plug 'editorconfig/editorconfig-vim'
+"启动对Emmet的支持
+Plug  'mattn/emmet-vim'
 call plug#end()
+"映射leader成  ,
+let mapleader="\,"
+"插入模式自动转换成绝对行号，正常模式自动转换成相对行号
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+" Fundamental settings
+  set fileencoding=utf-8
+  set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
+  set fileformat=unix
+  set fileformats=unix,dos,mac
+  filetype on
+  filetype plugin on
+  filetype plugin indent on
+  syntax on
+  "关闭单词拼写检查
+  set nospell
+" Some useful settings
+  set smartindent
+  set expandtab         "tab to spaces
+  set tabstop=2         "the width of a tab
+  set shiftwidth=2      "the width for indent
+  "自动折叠没有必要
+  "set foldenable
+  "set foldmethod=indent "folding by indent
+  set ignorecase        "ignore the case when search texts
+  set smartcase         "if searching text contains uppercase case will not be ignored
+" Lookings
+  "设置行号颜色,避免看不清楚
+  hi linenr ctermfg=lightcyan
+  set number           "line number
+  set cursorline       "hilight the line that the cursor exists in
+  "set cursorcolumn     "hilight the column that the cursor exists in
+  set nowrap           "no line wrapping
