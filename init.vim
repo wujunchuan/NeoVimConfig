@@ -24,6 +24,9 @@ Plug  'mattn/emmet-vim'
 "查看当前路径下的目录树
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " <F4> => popup the file tree navigation)
 nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
@@ -41,7 +44,7 @@ set fileformats=unix,dos,mac
 filetype on
 filetype plugin on
 filetype plugin indent on
-syntax on
+syntax enable
 "关闭单词拼写检查
 set nospell
 " Some useful settings
@@ -57,6 +60,10 @@ set smartcase         "if searching text contains uppercase case will not be ign
 " Lookings
 :colorscheme solarized
 let g:solarized_termcolors=256
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#enabled = 1
+" powerline font enable
+let g:airline_powerline_fonts=1
 set background=dark
 set number           "line number
 set cursorline       "hilight the line that the cursor exists in
