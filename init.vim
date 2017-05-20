@@ -30,9 +30,20 @@ Plug 'vim-airline/vim-airline-themes'
 " <F4> => popup the file tree navigation)
 nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
+"ack支持 <Leader>+a
+Plug 'mileszs/ack.vim'
+nnoremap <Leader>a :Ack!<Space>
+"方便在buffer中快速切换的工具 <Leader>+be
+Plug 'jlanzarotta/bufexplorer'
 call plug#end()
 "映射leader成  ,
 let mapleader="\,"
+"Can I use ag (The Silver Searcher) with this?
+if executable('ag')
+  "判断是否拥有ag支持
+  let g:ackprg = 'ag --vimgrep'
+endif
 "插入模式自动转换成绝对行号，正常模式自动转换成相对行号
 autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
@@ -41,6 +52,8 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,dos,mac
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
 filetype on
 filetype plugin on
 filetype plugin indent on
@@ -66,9 +79,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 set background=dark
 set number           "line number
-set cursorline       "hilight the line that the cursor exists in
-"set cursorcolumn     "hilight the column that the cursor exists in
 set nowrap           "no line wrapping
+
 " buffer快速导航
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>n :bn<CR>
