@@ -30,12 +30,18 @@ Plug 'vim-airline/vim-airline-themes'
 " <F4> => popup the file tree navigation)
 nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
+"You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.
+"see https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
+nmap ]a <Plug>GitGutterNextHunk
+nmap [a <Plug>GitGutterPrevHunk
 "ack支持 <Leader>+a
 Plug 'mileszs/ack.vim'
 nnoremap <Leader>a :Ack!<Space>
 "方便在buffer中快速切换的工具 <Leader>+be
 Plug 'jlanzarotta/bufexplorer'
+"辅助Airline查看当前Git Branch
+Plug 'tpope/vim-fugitive'
 call plug#end()
 "映射leader成  ,
 let mapleader="\,"
