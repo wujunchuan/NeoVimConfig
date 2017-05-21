@@ -80,6 +80,8 @@ Plug 'gko/vim-coloresque'
 Plug 'rakr/vim-one'
 "检索项目中的所有TODOLIST
 Plug 'vim-scripts/TaskList.vim'
+"代码片段的支持
+Plug 'SirVer/ultisnips'
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
@@ -128,20 +130,9 @@ let g:ycm_complete_in_strings = 1
 "注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:ycm_min_num_of_chars_for_completion=2	" 从第2个键入字符就开始罗列匹配项
-set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+"set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-function! MyTabFunction ()
-    let line = getline('.')
-    let substr = strpart(line, -1, col('.')+1)
-    let substr = matchstr(substr, "[^ \t]*$")
-    if strlen(substr) == 0
-        return "\<tab>"
-    endif
-    return pumvisible() ? "\<c-n>" : "\<c-x>\<c-o>"
-endfunction
-inoremap <tab> <c-r>=MyTabFunction()<cr>
-inoremap <c-o> <c-x><c-o>
 
 "Vim外观设置
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -150,7 +141,7 @@ set background=dark " for the dark version
 " powerline font enable
 let g:airline_powerline_fonts=1
 set number           "line number
-set nowrap           "no line wrapping
+set wrap             "line wrapping
 let g:airline#extensions#tabline#enabled = 1
 set t_8b=^[[48;2;%lu;%lu;%lum
 set t_8f=^[[38;2;%lu;%lu;%lum
