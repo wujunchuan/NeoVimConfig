@@ -5,9 +5,6 @@ let mapleader="\,"
 "文档查看https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 "in this place,you can add Plug what you want
-"下面这个插件,可以在Normal与Insert模式之间自动切换输入法
-"See https://github.com/CodeFalling/fcitx-remote-for-osx
-Plug 'CodeFalling/fcitx-vim-osx'
 "快速注释
 "See https://github.com/scrooloose/nerdcommenter
 Plug 'scrooloose/nerdcommenter'
@@ -43,9 +40,10 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
   nmap ]a <Plug>GitGutterNextHunk
   nmap [a <Plug>GitGutterPrevHunk
-"ack支持 <Leader>+a
+"搜索项目中出现的关键词
 Plug 'mileszs/ack.vim'
-  nnoremap <Leader>a :Ack!<Space>
+  "ack支持 <Leader>+ack
+  nnoremap <Leader>ack :Ack!<Space>
 "方便在buffer中快速切换的工具 <Leader>+be
 Plug 'jlanzarotta/bufexplorer'
 "辅助Airline查看当前Git Branch
@@ -63,6 +61,11 @@ Plug 'junegunn/vim-easy-align'
 "可以将不同的词标成不同的颜色, 比如标记在变量名上, 就很方便
 ":MarkClear可以清除所有的标记
 Plug 'vim-scripts/Mark--Karkat'
+"代码补齐神器
+Plug 'Valloric/YouCompleteMe'
+"自动闭合
+"使用<Leader>+a可以关闭AutoClose的功能
+Plug 'vim-scripts/AutoClose'
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')

@@ -9,7 +9,7 @@
 mac上使用brew进行安装:
 `brew install neovim`
 
-其他安装方式参考[Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+其他安装方式参考:[Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
 ### Python模块安装
 
@@ -31,6 +31,17 @@ mac上使用brew进行安装:
 
 ![](http://static.caogfw.cn/JohnTrump/2017-05-20-123211.jpg)
 
+### 插件管理
+
+本项目使用`vim-plug`作为插件管理工具
+
+[仓库地址](https://github.com/junegunn/vim-plug)
+
+常见操作:
+
+安装插件列表中的插件:`PlugInstall`
+删除插件列表中无用的插件:`PlugClean`
+
 ### 安装的插件列表
 
 - vim-fugitive
@@ -50,3 +61,34 @@ mac上使用brew进行安装:
 - vim-airline
 - nerdcommenter
 - editorconfig-vim
+
+### 安装YouCompleteMe(YCM)
+
+我们常用的omnicppcompleter,acp,vim自带的c-x, c-n的实现方式就是基于文本。通俗的讲就是**基本靠猜**
+
+> 原理: 通过对文本进行一些正则表达式的匹配,生成tags,以达到自动补齐的效果
+
+
+
+YCM则是通过**语义分析**来进行代码补全的,基于语义分析补全可以很精准.
+
+由于语法分析有很高的难度，也一直没有合适的工具出现。直到，由apple支持的clang/llvm横空出世。
+
+YouCompleteMe也正是在clang/llvm的基础上进行构建的
+
+#### 快速安装步骤
+
+1. 在`init.vim`中添加 `Plug 'Valloric/YouCompleteMe'
+`
+
+2. 打开Neovim,输入`:PlugInstall`,安装YouCompleteMe
+
+3. `cd ~/.local/share/nvim/plugged/YouCompleteMe`
+
+
+4. `./install --clang-completer`
+如果不需要C系家族语言的补全支持,直接执行`./install`
+
+> 编译安装步骤请看项目文档
+> 
+> [Full-Installation-Guide](https://github.com/Valloric/YouCompleteMe#full-installation-guide)
