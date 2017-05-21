@@ -24,30 +24,45 @@ Plug 'kshenoy/vim-signature'
 Plug 'editorconfig/editorconfig-vim'
 "启动对Emmet的支持
 Plug  'mattn/emmet-vim'
+  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+z
+  let g:user_emmet_leader_key='<C-E>'
+  let g:user_emmet_install_global = 0
+  "Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
+  autocmd FileType html,css EmmetInstall
 "查看当前路径下的目录树
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" <F4> => popup the file tree navigation)
-nmap <F4> :NERDTreeToggle<CR>
+  "<F4> => popup the file tree navigation)
+  nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
 "You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.
 "see https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
-nmap ]a <Plug>GitGutterNextHunk
-nmap [a <Plug>GitGutterPrevHunk
+  nmap ]a <Plug>GitGutterNextHunk
+  nmap [a <Plug>GitGutterPrevHunk
 "ack支持 <Leader>+a
 Plug 'mileszs/ack.vim'
-nnoremap <Leader>a :Ack!<Space>
+  nnoremap <Leader>a :Ack!<Space>
 "方便在buffer中快速切换的工具 <Leader>+be
 Plug 'jlanzarotta/bufexplorer'
 "辅助Airline查看当前Git Branch
 Plug 'tpope/vim-fugitive'
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure
 Plug 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
+  nmap <F8> :TagbarToggle<CR>
+"用于代码对齐的神器
+"See https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+"可以将不同的词标成不同的颜色, 比如标记在变量名上, 就很方便
+":MarkClear可以清除所有的标记
+Plug 'vim-scripts/Mark--Karkat'
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
@@ -91,10 +106,5 @@ set background=dark
 set number           "line number
 set nowrap           "no line wrapping
 
-" buffer快速导航
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>n :bn<CR>
-" 查看buffers
-nnoremap <Leader>l :ls<CR>
 " close buffer
 nnoremap <Leader>w :bd<CR>
