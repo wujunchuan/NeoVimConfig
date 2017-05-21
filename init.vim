@@ -1,3 +1,6 @@
+"映射leader成  ,
+let mapleader="\,"
+
 "项目使用vim-plug作为插件管理工具
 "文档查看https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -42,9 +45,10 @@ nnoremap <Leader>a :Ack!<Space>
 Plug 'jlanzarotta/bufexplorer'
 "辅助Airline查看当前Git Branch
 Plug 'tpope/vim-fugitive'
+"Tagbar is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure
+Plug 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
 call plug#end()
-"映射leader成  ,
-let mapleader="\,"
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
   "判断是否拥有ag支持

@@ -24,3 +24,29 @@ mac上使用brew进行安装:
 `~/.vimrc`对应`$XDG_CONFIG_HOME/nvim/init.vim`
 
 `~/.vim`对应`$XDG_CONFIG_HOME/nvim`
+
+### 检查Neovim环境健康
+
+使用`:CheckHealth` 可以查看一些基本配置是否正常
+
+![](http://static.caogfw.cn/JohnTrump/2017-05-20-123211.jpg)
+
+### 安装的插件列表
+
+- vim-fugitive
+- emmet-vim
+- bufexplorer
+- vim-colors-solarized
+- vim-repeat
+- fcitx-vim-osx
+- nerdtree
+- nerdtree-git-plugin
+- vim-airline-themes
+- vim-surround
+- ack.vim
+- vim-signature
+- vim-gitgutter
+- ctrlp.vim
+- vim-airline
+- nerdcommenter
+- editorconfig-vim
