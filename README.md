@@ -1,5 +1,7 @@
 # 折腾Neovim记录
 
+![项目运行图](http://static.caogfw.cn/JohnTrump/2017-05-21-105256.jpg)
+
 以前都是使用spf13作为vim的配置文件，随着使用的深入,冗长的配置文件越发感觉臃肿.随着学习的深入,我打算从零开始配置一款属于自己的Neovim
 
 ## neovim基本配置
