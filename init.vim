@@ -21,8 +21,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'editorconfig/editorconfig-vim'
 "启动对Emmet的支持
 Plug  'mattn/emmet-vim'
-  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+z
-  let g:user_emmet_leader_key='<C-E>'
+  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+k
+  let g:user_emmet_leader_key='<C-K>'
   let g:user_emmet_install_global = 0
   "Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
   autocmd FileType html,css EmmetInstall
@@ -66,6 +66,20 @@ Plug 'Valloric/YouCompleteMe'
 "自动闭合
 "使用<Leader>+a可以关闭AutoClose的功能
 Plug 'vim-scripts/AutoClose'
+"tern补全JavaScript插件
+Plug 'ternjs/tern_for_vim'
+"css语法高亮
+Plug 'hail2u/vim-css3-syntax'
+"less语法高亮
+Plug 'groenewege/vim-less'
+"JavaScript语法高亮
+Plug 'pangloss/vim-javascript'
+"高亮色块
+Plug 'gko/vim-coloresque'
+"One主题
+Plug 'rakr/vim-one'
+"检索项目中的所有TODOLIST
+Plug 'vim-scripts/TaskList.vim'
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
@@ -93,21 +107,26 @@ set smartindent
 set expandtab         "tab to spaces
 set tabstop=2         "the width of a tab
 set shiftwidth=2      "the width for indent
-"自动折叠没有必要
-"set foldenable
-"set foldmethod=indent "folding by indent
 set ignorecase        "ignore the case when search texts
 set smartcase         "if searching text contains uppercase case will not be ignored
-" Lookings
-:colorscheme solarized
-let g:solarized_termcolors=256
-let g:airline_theme='simple'
-let g:airline#extensions#tabline#enabled = 1
-" powerline font enable
-let g:airline_powerline_fonts=1
-set background=dark
-set number           "line number
-set nowrap           "no line wrapping
 
 " close buffer
 nnoremap <Leader>w :bd<CR>
+
+
+"YouCompleteMe
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+'],
+    \   'html': [ '</' ],
+    \ }
+"Vim外观设置
+colorscheme one
+set background=dark " for the dark version
+" powerline font enable
+let g:airline_powerline_fonts=1
+set number           "line number
+set nowrap           "no line wrapping
+let g:airline#extensions#tabline#enabled = 1
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
+let g:airline_theme='one'
