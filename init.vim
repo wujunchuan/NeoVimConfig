@@ -40,6 +40,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
   nmap ]a <Plug>GitGutterNextHunk
   nmap [a <Plug>GitGutterPrevHunk
+  nmap gua <Plug>GitGutterUndoHunk
+  nmap gpr <Plug>GitGutterPreviewHunk
 "搜索项目中出现的关键词
 Plug 'mileszs/ack.vim'
   "ack支持 <Leader>+ack
@@ -86,6 +88,12 @@ Plug 'SirVer/ultisnips'
 Plug 'heavenshell/vim-jsdoc'
   "移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
   nmap <silent> <C-l> <Plug>(jsdoc)
+"显示缩进线,隐藏快捷键(<Leader>ig)
+Plug 'nathanaelkane/vim-indent-guides'
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_tab_guides = 0
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
@@ -115,6 +123,8 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax enable
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
 "关闭单词拼写检查
 set nospell
 " Some useful settings
@@ -163,3 +173,17 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "设置补全框样式
 highlight Pmenu ctermbg=75
 highlight PmenuSel ctermbg=169
+"定制 indent_guides 的样式
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=237
+hi IndentGuidesEven ctermbg=235
+"原先需要制定`+`/`*` register作为寄存器
+"现在可以直接复制粘贴了
+"See https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+if has('clipboard')
+    if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+    endif
+endif
