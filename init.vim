@@ -82,12 +82,25 @@ Plug 'rakr/vim-one'
 Plug 'vim-scripts/TaskList.vim'
 "代码片段的支持
 Plug 'SirVer/ultisnips'
+"Generate JSDoc to Javascript code
+Plug 'heavenshell/vim-jsdoc'
+  "移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
+  nmap <silent> <C-l> <Plug>(jsdoc)
 call plug#end()
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
   "判断是否拥有ag支持
   let g:ackprg = 'ag --vimgrep'
 endif
+"See http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
+"See http://www.55228885.com/Ljzenbgk.html
+"improve performance
+set nocursorcolumn
+set nocursorline
+set norelativenumber
+syntax sync minlines=256
+set synmaxcol=200 
+set scrolljump=5
 "插入模式自动转换成绝对行号，正常模式自动转换成相对行号
 autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
