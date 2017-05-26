@@ -96,7 +96,19 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_tab_guides = 0
 "搭配Dash使用,查阅文档
 Plug 'rizzatti/dash.vim'
-    :nmap <silent> <leader>d <Plug>DashSearch
+  :nmap <silent> <leader>d <Plug>DashSearch
+"代码片段插件
+Plug 'SirVer/ultisnips'
+  "在片段插入之后可以使用<Ctrl+f>前移
+  let g:UltiSnipsJumpForwardTrigger="<c-f>"
+  "在片段插入之后可以使用<Ctrl+f>后移
+  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  " If you want :UltiSnipsEdit to split your window.
+  "let g:UltiSnipsEditSplit="vertical"
+"常见代码块集合
+Plug 'honza/vim-snippets'
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
