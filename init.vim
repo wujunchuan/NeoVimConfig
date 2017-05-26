@@ -167,6 +167,7 @@ let g:airline_powerline_fonts=1
 set number           "line number
 set wrap             "line wrapping
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='one'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "设置补全框样式
 highlight Pmenu ctermbg=75
@@ -179,13 +180,13 @@ hi IndentGuidesEven ctermbg=235
 "现在可以直接复制粘贴了
 "See https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
 if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
+    if has('unnamedplus') " When possible use + register for copy-paste
         set clipboard=unnamed,unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
+    else                  " On mac and Windows, use * register for copy-paste
         set clipboard=unnamed
     endif
 endif
-set cursorline
+set nocursorline
 :hi CursorLine   cterm=NONE ctermbg=240 ctermfg=white guibg=188 guifg=white
 "使用<Leader>+cur来控制是否高亮当前行
 :nnoremap <Leader>cur :set cursorline! cursorcolumn!<CR>
