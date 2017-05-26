@@ -94,7 +94,16 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_guide_size = 1
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_tab_guides = 0
+"搭配Dash使用,查阅文档
+Plug 'rizzatti/dash.vim'
+    :nmap <silent> <leader>d <Plug>DashSearch
 call plug#end()
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+"允许多次多选编辑
+"https://stackoverflow.com/questions/355907/how-do-i-repeat-an-edit-on-multiple-lines-in-vim/8064607#8064607
+vnoremap . :normal .<CR>
 "Can I use ag (The Silver Searcher) with this?
 if executable('ag')
   "判断是否拥有ag支持
