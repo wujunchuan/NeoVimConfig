@@ -99,12 +99,13 @@ Plug 'rizzatti/dash.vim'
   :nmap <silent> <leader>d <Plug>DashSearch
 "代码片段插件
 Plug 'SirVer/ultisnips'
-  "在片段插入之后可以使用<Ctrl+f>前移
-  let g:UltiSnipsJumpForwardTrigger="<c-f>"
-  "在片段插入之后可以使用<Ctrl+f>后移
-  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  "在片段插入之后可以使用<Ctrl+k>前移
+  let g:UltiSnipsJumpForwardTrigger="<c-k>"
+  " Trigger configuration.
+  " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
   let g:UltiSnipsExpandTrigger="<c-k>"
+  "在片段插入之后可以使用<Ctrl+j>后移
+  let g:UltiSnipsJumpBackwardTrigger="<c-j>"
   " If you want :UltiSnipsEdit to split your window.
   "let g:UltiSnipsEditSplit="vertical"
 "常见代码块集合
