@@ -21,8 +21,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'editorconfig/editorconfig-vim'
 "启动对Emmet的支持
 Plug  'mattn/emmet-vim'
-  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+k
-  let g:user_emmet_leader_key='<C-K>'
+  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+e+,
+  let g:user_emmet_leader_key='<C-E>'
   let g:user_emmet_install_global = 0
   "Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
   autocmd FileType html,css EmmetInstall
@@ -38,8 +38,8 @@ Plug 'altercation/vim-colors-solarized'
 "You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.
 "see https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
-  nmap ]a <Plug>GitGutterNextHunk
-  nmap [a <Plug>GitGutterPrevHunk
+  nmap ]] <Plug>GitGutterNextHunk
+  nmap [[ <Plug>GitGutterPrevHunk
   nmap gua <Plug>GitGutterUndoHunk
   nmap gpr <Plug>GitGutterPreviewHunk
 "搜索项目中出现的关键词
@@ -117,30 +117,31 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,dos,mac
-set incsearch                   " Find as you type search
-set hlsearch                    " Highlight search terms
+set incsearch " Find as you type search
+set hlsearch  " Highlight search terms
 filetype on
 filetype plugin on
 filetype plugin indent on
 syntax enable
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
+set mouse=a   " Automatically enable mouse usage
+set mousehide " Hide the mouse cursor while typing
 "关闭单词拼写检查
 set nospell
 " Some useful settings
 set smartindent
-set expandtab         "tab to spaces
-set tabstop=2         "the width of a tab
-set shiftwidth=2      "the width for indent
-set ignorecase        "ignore the case when search texts
-set smartcase         "if searching text contains uppercase case will not be ignored
-
+set expandtab      " tab to spaces
+set linespace=0    " No extra spaces between rows
+set winminheight=1 " Windows can be 0 line high
+"设置宽度为2
+set tabstop=2    " the width of a tab
+set shiftwidth=2 " the width for indent
+set ignorecase   " ignore the case when search texts
+set smartcase    " if searching text contains uppercase case will not be ignored
+set list
+set listchars=tab:>>,eol:¬,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 " close buffer
 nnoremap <Leader>w :bd<CR>
-
-
 "YouCompleteMe
-
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+'],
     \   'html': [ '</' ],
@@ -166,9 +167,6 @@ let g:airline_powerline_fonts=1
 set number           "line number
 set wrap             "line wrapping
 let g:airline#extensions#tabline#enabled = 1
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
-let g:airline_theme='one'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "设置补全框样式
 highlight Pmenu ctermbg=75
@@ -187,3 +185,7 @@ if has('clipboard')
         set clipboard=unnamed
     endif
 endif
+set cursorline
+:hi CursorLine   cterm=NONE ctermbg=240 ctermfg=white guibg=188 guifg=white
+"使用<Leader>+cur来控制是否高亮当前行
+:nnoremap <Leader>cur :set cursorline! cursorcolumn!<CR>
