@@ -4,7 +4,8 @@ let mapleader="\,"
 "项目使用vim-plug作为插件管理工具
 "文档查看https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-"in this place,you can add Plug what you want 快速注释
+"in this place,you can add Plug what you want
+"快速注释
 "See https://github.com/scrooloose/nerdcommenter
 Plug 'scrooloose/nerdcommenter'
 "surround可以用来修改括号, 方括号, 标签等等包围在两边的元素
@@ -34,7 +35,6 @@ Plug 'vim-airline/vim-airline-themes'
   "<F4> => popup the file tree navigation)
   nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
-"You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.
 "see https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
   nmap ]] <Plug>GitGutterNextHunk
