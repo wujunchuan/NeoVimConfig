@@ -94,3 +94,31 @@ YouCompleteMe也正是在clang/llvm的基础上进行构建的
 > 编译安装步骤请看项目文档
 > 
 > [Full-Installation-Guide](https://github.com/Valloric/YouCompleteMe#full-installation-guide)
+
+#### 定义snip
+
+使用`UltiSnips`来定义Snipt
+
+```
+snippet 关键词 “说明” 设定
+内容
+endsnippet
+```
+
+##### UltiSnips的设定
+
+- `b` 代表只有关键词出现在行首的时候才会被展开
+- `A` 代表自动展开
+- `w` 代表可以展开这个词,这个关键词是单独的,和其他文字分开的(比如前后都是空格)
+- `i` 代表可以忽略前后字节,直接展开关键词(这个设定比`w`更为松)
+
+其他命令通过`:help ultisnip`查看
+
+##### 搜索路径
+
+可以通过配置来指定Snipt搜索的路径
+
+当前配置的路径为:
+
+
+`~/.local/share/nvim/plugged/vim-snippets/UltiSnips`及` ~/.config/nvim/UltiSnips `

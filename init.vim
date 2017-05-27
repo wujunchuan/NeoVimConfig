@@ -4,8 +4,7 @@ let mapleader="\,"
 "项目使用vim-plug作为插件管理工具
 "文档查看https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-"in this place,you can add Plug what you want
-"快速注释
+"in this place,you can add Plug what you want 快速注释
 "See https://github.com/scrooloose/nerdcommenter
 Plug 'scrooloose/nerdcommenter'
 "surround可以用来修改括号, 方括号, 标签等等包围在两边的元素
@@ -82,8 +81,6 @@ Plug 'gko/vim-coloresque'
 Plug 'rakr/vim-one'
 "检索项目中的所有TODOLIST
 Plug 'vim-scripts/TaskList.vim'
-"代码片段的支持
-Plug 'SirVer/ultisnips'
 "Generate JSDoc to Javascript code
 Plug 'heavenshell/vim-jsdoc'
   "移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
@@ -106,10 +103,11 @@ Plug 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger="<c-k>"
   "在片段插入之后可以使用<Ctrl+j>后移
   let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-  " If you want :UltiSnipsEdit to split your window.
-  "let g:UltiSnipsEditSplit="vertical"
+  "search path
 "常见代码块集合
 Plug 'honza/vim-snippets'
+  " show Snipts files
+  nnoremap <Leader>sni :UltiSnipsEdit!<CR>
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -212,3 +210,9 @@ set nocursorline
 :hi CursorLine   cterm=NONE ctermbg=240 ctermfg=white guibg=188 guifg=white
 "使用<Leader>+cur来控制是否高亮当前行
 :nnoremap <Leader>cur :set cursorline! cursorcolumn!<CR>
+
+"See https://stackoverflow.com/questions/24720587/vim-with-youcompleteme-and-markdown
+"YouCompleteMe的黑名单与白名单设置
+"1为TRUE,0为FALSE
+let g:ycm_filetype_blacklist={'notes': 1, 'markdown': 0, 'unite': 1, 'tagbar': 1, 'pandoc': 1, 'qf': 1, 'vimwiki': 1, 'text': 1, 'infolog': 1, 'mail': 1}
+let g:ycm_filetype_blacklist = {}
