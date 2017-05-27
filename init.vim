@@ -216,3 +216,9 @@ set nocursorline
 "1为TRUE,0为FALSE
 let g:ycm_filetype_blacklist={'notes': 1, 'markdown': 0, 'unite': 1, 'tagbar': 1, 'pandoc': 1, 'qf': 1, 'vimwiki': 1, 'text': 1, 'infolog': 1, 'mail': 1}
 let g:ycm_filetype_blacklist = {}
+" 定制`CtrlP`的忽略列表
+" See https://github.com/kien/ctrlp.vim/issues/58
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+if filereadable(".ctrlpignore")
+    let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
+endif
