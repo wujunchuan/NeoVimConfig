@@ -222,3 +222,6 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|assets)|(\.(swp|ico
 if filereadable(".ctrlpignore")
     let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
 endif
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
+set display     =lastline  " Show as much as possible of the last line.
