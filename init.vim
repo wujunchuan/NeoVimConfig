@@ -108,6 +108,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
   " show Snipts files
   nnoremap <Leader>sni :UltiSnipsEdit!<CR>
+"可视化内容变更历史记录
+Plug 'mbbill/undotree'
+  nnoremap <F5> :UndotreeToggle<cr>
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -225,3 +228,13 @@ endif
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
 set display     =lastline  " Show as much as possible of the last line.
+"更加方便的使用命令行历史
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+"Ctrl + l 的默认功能是清空并「重新绘制」当前的屏幕，就和 :redraw! 的功能一样。下面的这个映射就是执行重新绘制，并且取消通过 / 和 ? 匹配字符的高亮，而且还可以修复代码高亮问题
+"快捷键 <leader>l
+nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+"快速移动当前行
+"快将诶建 [|]+e
+nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
