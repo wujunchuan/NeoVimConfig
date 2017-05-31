@@ -91,6 +91,8 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_guide_size = 1
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_tab_guides = 0
+  "隐藏部分场景下的indent-indent_guides
+  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "搭配Dash使用,查阅文档
 Plug 'rizzatti/dash.vim'
   :nmap <silent> <leader>d <Plug>DashSearch
