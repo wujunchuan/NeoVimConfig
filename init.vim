@@ -91,6 +91,8 @@ Plug 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_guide_size = 1
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_tab_guides = 0
+  "隐藏部分场景下的indent-indent_guides
+  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "搭配Dash使用,查阅文档
 Plug 'rizzatti/dash.vim'
   :nmap <silent> <leader>d <Plug>DashSearch
@@ -132,9 +134,10 @@ set norelativenumber
 syntax sync minlines=256
 set synmaxcol=200 
 set scrolljump=5
-"插入模式自动转换成绝对行号，正常模式自动转换成相对行号
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+""插入模式自动转换成绝对行号，正常模式自动转换成相对行号
+" CHANGELOG: 在渲染压力大的情况下,相对行号导致卡顿,所以注释掉了
+"autocmd InsertEnter * :set norelativenumber number
+"autocmd InsertLeave * :set relativenumber
 " Fundamental settings
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
