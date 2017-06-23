@@ -113,6 +113,19 @@ Plug 'honza/vim-snippets'
 "可视化内容变更历史记录
 Plug 'mbbill/undotree'
   nnoremap <F5> :UndotreeToggle<cr>
+"自动排序css
+Plug 'csscomb/vim-csscomb'
+  " Map bc to run CSScomb. bc stands for beautify css
+  autocmd FileType css noremap <buffer> <leader>cb :CSScomb<CR>
+  " Automatically comb your CSS on save
+  autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+"link https://github.com/othree/eregex.vim
+"for use Perl/Ruby Style Regex
+Plug 'othree/eregex.vim'
+  nnoremap / /\v
+  nnoremap ? :M/
+  nnoremap <leader>vf :M/<c-r><c-w>
+  nnoremap <leader>vr :.,$S///gec<left><left><left><left><left>
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -228,6 +241,8 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|assets)|(\.(swp|ico
 if filereadable(".ctrlpignore")
     let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
 endif
+"刷新ctrlp,See https://stackoverflow.com/questions/8663829/vim-ctrlp-vim-plugin-how-to-rescan-files
+"在ctrlp激活的情况下F5
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
 set display     =lastline  " Show as much as possible of the last line.
@@ -241,3 +256,8 @@ nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 "快将诶建 [|]+e
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+"戒掉使用光标键的习惯,如果已经适应的话,就将其注释掉,并且替换为更加有用的功能上
+"noremap <Up> <Nup>
+"noremap <Down> <NDown>
+"noremap <Left> <NLeft>
+"noremap <Right> <NRight>
