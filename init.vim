@@ -63,7 +63,7 @@ Plug 'junegunn/vim-easy-align'
 ":MarkClear可以清除所有的标记
 Plug 'vim-scripts/Mark--Karkat'
 "代码补齐神器
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe',{'frozen':'true'}
 "自动闭合
 "使用<Leader>+a可以关闭AutoClose的功能
 Plug 'vim-scripts/AutoClose'
@@ -126,6 +126,43 @@ Plug 'othree/eregex.vim'
   nnoremap ? :M/
   nnoremap <leader>vf :M/<c-r><c-w>
   nnoremap <leader>vr :.,$S///gec<left><left><left><left><left>
+Plug 'scrooloose/syntastic'
+  let g:syntastic_error_symbol='>>'
+  let g:syntastic_warning_symbol='>'
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 1
+  "暂时关闭
+  "let g:syntastic_check_on_open = 0
+  "let g:syntastic_check_on_wq = 0
+  let g:syntastic_javascript_standard_generic = 1
+  let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_javascript_eslint_exec = 'eslint'
+  " to see error location list
+  let g:syntastic_always_populate_loc_list = 0
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_loc_list_height = 5
+  "<Leader> + , 打开错误列表
+  function! ToggleErrors()
+      let old_last_winnr = winnr('$')
+      lclose
+      if old_last_winnr == winnr('$')
+          " Nothing was closed, open syntastic error location panel
+          Errors
+      endif
+  endfunction
+  nnoremap <Leader>s :call ToggleErrors()<cr>
+  highlight link SyntasticError ErrorMsg
+  highlight link SyntasticErrorSign WarningMsg
+"支援vue与Pug/Jade高亮
+"Plug 'posva/vim-vue'
+"Plug 'digitaltoad/vim-pug'
+""支援html and css beautify
+"Plug 'html-beautify'
+"Plug 'css-beautify'
+
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -234,7 +271,6 @@ set nocursorline
 "YouCompleteMe的黑名单与白名单设置
 "1为TRUE,0为FALSE
 let g:ycm_filetype_blacklist={'notes': 1, 'markdown': 0, 'unite': 1, 'tagbar': 1, 'pandoc': 1, 'qf': 1, 'vimwiki': 1, 'text': 1, 'infolog': 1, 'mail': 1}
-let g:ycm_filetype_blacklist = {}
 " 定制`CtrlP`的忽略列表
 " See https://github.com/kien/ctrlp.vim/issues/58
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|assets)|(\.(swp|ico|git|svn))$'
@@ -261,3 +297,4 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 "noremap <Down> <NDown>
 "noremap <Left> <NLeft>
 "noremap <Right> <NRight>
+au BufRead,BufNewFile *.vue set filetype=html
