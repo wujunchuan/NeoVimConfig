@@ -21,44 +21,44 @@ Plug 'kshenoy/vim-signature'
 Plug 'editorconfig/editorconfig-vim'
 "启动对Emmet的支持
 Plug  'mattn/emmet-vim'
-  "快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+e+,
-  let g:user_emmet_leader_key='<C-E>'
-  let g:user_emmet_install_global = 0
-  "Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
-  autocmd FileType html,css EmmetInstall
+"快捷键位置原本为<Ctrl>+y 太远了,修改为<Ctrl>+e+,
+let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_install_global = 0
+"Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
+autocmd FileType html,css EmmetInstall
 "查看当前路径下的目录树
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-  "<F4> => popup the file tree navigation)
-  nmap <F4> :NERDTreeToggle<CR>
+"<F4> => popup the file tree navigation)
+nmap <F4> :NERDTreeToggle<CR>
 Plug 'altercation/vim-colors-solarized'
 "see https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
-  nmap ]] <Plug>GitGutterNextHunk
-  nmap [[ <Plug>GitGutterPrevHunk
-  nmap gua <Plug>GitGutterUndoHunk
-  nmap gpr <Plug>GitGutterPreviewHunk
+nmap ]] <Plug>GitGutterNextHunk
+nmap [[ <Plug>GitGutterPrevHunk
+nmap gua <Plug>GitGutterUndoHunk
+nmap gpr <Plug>GitGutterPreviewHunk
 "搜索项目中出现的关键词
 Plug 'mileszs/ack.vim'
-  "ack支持 <Leader>+ack
-  nnoremap <Leader>ack :Ack!<Space>
+"ack支持 <Leader>+ack
+nnoremap <Leader>ack :Ack!<Space>
 "方便在buffer中快速切换的工具 <Leader>+be
 Plug 'jlanzarotta/bufexplorer'
 "辅助Airline查看当前Git Branch
 Plug 'tpope/vim-fugitive'
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure
 Plug 'majutsushi/tagbar'
-  nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 "用于代码对齐的神器
 "See https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 "可以将不同的词标成不同的颜色, 比如标记在变量名上, 就很方便
 ":MarkClear可以清除所有的标记
 Plug 'vim-scripts/Mark--Karkat'
@@ -83,86 +83,92 @@ Plug 'rakr/vim-one'
 Plug 'vim-scripts/TaskList.vim'
 "Generate JSDoc to Javascript code
 Plug 'heavenshell/vim-jsdoc'
-  "移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
-  nmap <silent> <C-l> <Plug>(jsdoc)
+"移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
+nmap <silent> <C-l> <Plug>(jsdoc)
 "显示缩进线,隐藏快捷键(<Leader>ig)
 Plug 'nathanaelkane/vim-indent-guides'
-  let g:indent_guides_start_level = 2
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_tab_guides = 0
-  "隐藏部分场景下的indent-indent_guides
-  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_tab_guides = 0
+"隐藏部分场景下的indent-indent_guides
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "搭配Dash使用,查阅文档
 Plug 'rizzatti/dash.vim'
-  :nmap <silent> <leader>d <Plug>DashSearch
+:nmap <silent> <leader>d <Plug>DashSearch
 "代码片段插件
 Plug 'SirVer/ultisnips'
-  "在片段插入之后可以使用<Ctrl+k>前移
-  let g:UltiSnipsJumpForwardTrigger="<c-k>"
-  " Trigger configuration.
-  " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<c-k>"
-  "在片段插入之后可以使用<Ctrl+j>后移
-  let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-  "search path
+"在片段插入之后可以使用<Ctrl+k>前移
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+" Trigger configuration.
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-k>"
+"在片段插入之后可以使用<Ctrl+j>后移
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+"search path
 "常见代码块集合
 Plug 'honza/vim-snippets'
-  " show Snipts files
-  nnoremap <Leader>sni :UltiSnipsEdit!<CR>
+" show Snipts files
+nnoremap <Leader>sni :UltiSnipsEdit!<CR>
 "可视化内容变更历史记录
 Plug 'mbbill/undotree'
-  nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <F5> :UndotreeToggle<cr>
 "自动排序css
 Plug 'csscomb/vim-csscomb'
-  " Map bc to run CSScomb. bc stands for beautify css
-  autocmd FileType css noremap <buffer> <leader>cb :CSScomb<CR>
-  " Automatically comb your CSS on save
-  autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+" Map bc to run CSScomb. bc stands for beautify css
+autocmd FileType css noremap <buffer> <leader>cb :CSScomb<CR>
+" Automatically comb your CSS on save
+autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
 "link https://github.com/othree/eregex.vim
 "for use Perl/Ruby Style Regex
 Plug 'othree/eregex.vim'
-  nnoremap / /\v
-  nnoremap ? :M/
-  nnoremap <leader>vf :M/<c-r><c-w>
-  nnoremap <leader>vr :.,$S///gec<left><left><left><left><left>
+nnoremap / /\v
+nnoremap ? :M/
+nnoremap <leader>vf :M/<c-r><c-w>
+nnoremap <leader>vr :.,$S///gec<left><left><left><left><left>
 Plug 'scrooloose/syntastic'
-  let g:syntastic_error_symbol='>>'
-  let g:syntastic_warning_symbol='>'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 1
-  "暂时关闭
-  "let g:syntastic_check_on_open = 0
-  "let g:syntastic_check_on_wq = 0
-  let g:syntastic_javascript_standard_generic = 1
-  let g:syntastic_javascript_checkers = ['eslint']
-  let g:syntastic_javascript_eslint_exec = 'eslint'
-  " to see error location list
-  let g:syntastic_always_populate_loc_list = 0
-  let g:syntastic_auto_loc_list = 0
-  let g:syntastic_loc_list_height = 5
-  "<Leader> + , 打开错误列表
-  function! ToggleErrors()
-      let old_last_winnr = winnr('$')
-      lclose
-      if old_last_winnr == winnr('$')
-          " Nothing was closed, open syntastic error location panel
-          Errors
-      endif
-  endfunction
-  nnoremap <Leader>s :call ToggleErrors()<cr>
-  highlight link SyntasticError ErrorMsg
-  highlight link SyntasticErrorSign WarningMsg
-"支援vue与Pug/Jade高亮
-"Plug 'posva/vim-vue'
-"Plug 'digitaltoad/vim-pug'
-""支援html and css beautify
-"Plug 'html-beautify'
-"Plug 'css-beautify'
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+"暂时关闭
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_standard_generic = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint'
+" to see error location list
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 5
+"<Leader> + , 打开错误列表
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel
+    Errors
+  endif
+endfunction
+nnoremap <Leader>s :call ToggleErrors()<cr>
+highlight link SyntasticError ErrorMsg
+highlight link SyntasticErrorSign WarningMsg
 
+"自动格式化,使用vue-beautify 作为外部程序来调用以实现vue文件格式化
+"当然可以使用其他的外部程序来调用
+Plug 'Chiel92/vim-autoformat'
+"调用vim-Autoformat的快捷键(全局)
+noremap <F3> :Autoformat<CR>
+"format verbose mode  便于调试
+let g:autoformat_verbosemode = 1
+"自定义formater program
+let g:formatdef_jsbeautify_javascript = '"js-beautify -X -a -s 2"'
+let g:formatdef_vuebeautify_vue = '"vue-beautify -s 2"'
+let g:formatters_vue = ['vuebeautify_vue']
+Plug 'posva/vim-vue'
 call plug#end()
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -182,7 +188,7 @@ set nocursorcolumn
 set nocursorline
 set norelativenumber
 syntax sync minlines=256
-set synmaxcol=200 
+set synmaxcol=200
 set scrolljump=5
 ""插入模式自动转换成绝对行号，正常模式自动转换成相对行号
 " CHANGELOG: 在渲染压力大的情况下,相对行号导致卡顿,所以注释掉了
@@ -219,9 +225,9 @@ set listchars=tab:>>,eol:¬,trail:•,extends:#,nbsp:. " Highlight problematic w
 nnoremap <Leader>w :bd<CR>
 "YouCompleteMe
 let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+'],
-    \   'html': [ '</' ],
-    \ }
+      \   'css': [ 're!^\s{4}', 're!:\s+'],
+      \   'html': [ '</' ],
+      \ }
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "在注释输入中也能补全
 let g:ycm_complete_in_comments = 1
@@ -229,8 +235,8 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 "注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
-let g:ycm_min_num_of_chars_for_completion=2	" 从第2个键入字符就开始罗列匹配项
-"set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+let g:ycm_min_num_of_chars_for_completion=2 " 从第2个键入字符就开始罗列匹配项
+"set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -256,11 +262,11 @@ hi IndentGuidesEven ctermbg=235
 "现在可以直接复制粘贴了
 "See https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
 if has('clipboard')
-    if has('unnamedplus') " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-    else                  " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
+  if has('unnamedplus') " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else                  " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
 endif
 set nocursorline
 :hi CursorLine   cterm=NONE ctermbg=240 ctermfg=white guibg=188 guifg=white
@@ -275,7 +281,7 @@ let g:ycm_filetype_blacklist={'notes': 1, 'markdown': 0, 'unite': 1, 'tagbar': 1
 " See https://github.com/kien/ctrlp.vim/issues/58
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|assets)|(\.(swp|ico|git|svn))$'
 if filereadable(".ctrlpignore")
-    let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
+  let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
 endif
 "刷新ctrlp,See https://stackoverflow.com/questions/8663829/vim-ctrlp-vim-plugin-how-to-rescan-files
 "在ctrlp激活的情况下F5
@@ -297,4 +303,7 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 "noremap <Down> <NDown>
 "noremap <Left> <NLeft>
 "noremap <Right> <NRight>
-au BufRead,BufNewFile *.vue set filetype=html
+"
+"solved issues: My syntax highlighting stops working randomly
+"but it will be slow sometimes
+"autocmd FileType vue syntax sync fromstart
