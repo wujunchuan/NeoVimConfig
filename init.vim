@@ -25,7 +25,7 @@ Plug  'mattn/emmet-vim'
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_install_global = 0
 "Enable just for html/css 随着文件类型的丰富,修改这里,启动Emmet
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,sass,less,scss,vue EmmetInstall
 "查看当前路径下的目录树
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -84,9 +84,12 @@ Plug 'vim-scripts/TaskList.vim'
 "Generate JSDoc to Javascript code
 Plug 'heavenshell/vim-jsdoc'
 "移动光标到函数名称上,输入<Ctrl>+L即可快速完成注释
-nmap <silent> <C-l> <Plug>(jsdoc)
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_enable_es6 = 1
 "显示缩进线,隐藏快捷键(<Leader>ig)
 Plug 'nathanaelkane/vim-indent-guides'
+let g:jsdoc_allow_input_prompt = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -99,12 +102,12 @@ Plug 'rizzatti/dash.vim'
 "代码片段插件
 Plug 'SirVer/ultisnips'
 "在片段插入之后可以使用<Ctrl+k>前移
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-h>"
 " Trigger configuration.
 " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-m>"
 "在片段插入之后可以使用<Ctrl+j>后移
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-l>"
 "search path
 "常见代码块集合
 Plug 'honza/vim-snippets'
