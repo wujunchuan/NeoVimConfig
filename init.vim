@@ -101,12 +101,14 @@ Plug 'rizzatti/dash.vim'
 :nmap <silent> <leader>d <Plug>DashSearch
 "代码片段插件
 Plug 'SirVer/ultisnips'
-"在片段插入之后可以使用<Ctrl+k>前移
+"在片段插入之后可以使用<Ctrl+h>前移
 let g:UltiSnipsJumpForwardTrigger="<c-h>"
 " Trigger configuration.
 " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-m>"
-"在片段插入之后可以使用<Ctrl+j>后移
+" Why use <c-m> will cause return key missing? I don't know..but anyway ->
+" Don't try it that
+let g:UltiSnipsExpandTrigger="<c-b>"
+"在片段插入之后可以使用<Ctrl+l>后移
 let g:UltiSnipsJumpBackwardTrigger="<c-l>"
 "search path
 "常见代码块集合
