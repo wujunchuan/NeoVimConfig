@@ -122,3 +122,20 @@ endsnippet
 
 
 `~/.local/share/nvim/plugged/vim-snippets/UltiSnips`及` ~/.config/nvim/UltiSnips `
+
+#### airline乱码问题
+
+- 确保bundle中有vim-airline这个插件的支持
+  `git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline`
+
+- 下载airline支持的字体
+  `git clone https://github.com/powerline/fonts ~/.vim/bundle/vim-airline-fonts`
+
+- 安装字体
+  `bash ~/.vim/bundle/vim-airline-fonts/install.sh`
+
+- 设置终端的字体，后面有powerline字样皆可使用
+
+## 更新日志
+
+- 2018-01-29 对vim的支持
